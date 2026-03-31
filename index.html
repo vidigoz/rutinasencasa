@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rutinas en Casa</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>🌟 Rutinas en Casa</h1>
+      <p>Ayuda a tus peques a crear hábitos y ganar recompensas.</p>
+    </header>
+
+    <main class="grid">
+      <section class="panel">
+        <h2>✅ Rutinas Fijas</h2>
+        <p class="helper">Deben completarse todas para desbloquear los puntos.</p>
+        <form id="fixed-form" class="inline-form">
+          <input id="fixed-name" type="text" placeholder="Ej: Tender la cama" required />
+          <button type="submit">Agregar</button>
+        </form>
+        <ul id="fixed-list" class="task-list"></ul>
+      </section>
+
+      <section class="panel">
+        <h2>👨‍👩‍👧‍👦 Rutinas Familia (con puntos)</h2>
+        <form id="family-form" class="inline-form score-form">
+          <input id="family-name" type="text" placeholder="Ej: Sacar basura" required />
+          <input id="family-points" type="number" min="1" value="5" required />
+          <button type="submit">Agregar</button>
+        </form>
+        <ul id="family-list" class="task-list"></ul>
+      </section>
+
+      <section class="panel">
+        <h2>💪 Rutinas Grandes (con puntos)</h2>
+        <form id="big-form" class="inline-form score-form">
+          <input id="big-name" type="text" placeholder="Ej: Ordenar cuarto" required />
+          <input id="big-points" type="number" min="1" value="15" required />
+          <button type="submit">Agregar</button>
+        </form>
+        <ul id="big-list" class="task-list"></ul>
+      </section>
+
+      <section class="panel points-panel">
+        <h2>🏆 Puntos y Recompensas</h2>
+        <div class="badge-row">
+          <span class="badge">Puntos acumulados: <strong id="total-points">0</strong></span>
+          <span id="lock-status" class="badge lock">🔒 Bloqueado (faltan rutinas fijas)</span>
+        </div>
+
+        <form id="reward-form" class="inline-form score-form">
+          <input id="reward-name" type="text" placeholder="Ej: 30 min de videojuego" required />
+          <input id="reward-cost" type="number" min="1" value="20" required />
+          <button type="submit">Agregar recompensa</button>
+        </form>
+
+        <ul id="reward-list" class="reward-list"></ul>
+      </section>
+    </main>
+
+    <template id="task-item-template">
+      <li class="task-item">
+        <label>
+          <input type="checkbox" class="task-check" />
+          <span class="task-name"></span>
+        </label>
+        <span class="task-points"></span>
+        <button class="edit-btn" type="button">Editar</button>
+        <button class="delete-btn" type="button">Eliminar</button>
+      </li>
+    </template>
+
+    <template id="reward-item-template">
+      <li class="reward-item">
+        <div>
+          <p class="reward-name"></p>
+          <small class="reward-cost"></small>
+        </div>
+        <button class="redeem-btn" type="button">Canjear</button>
+        <button class="edit-btn" type="button">Editar</button>
+        <button class="delete-btn" type="button">Eliminar</button>
+      </li>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
